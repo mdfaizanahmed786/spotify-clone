@@ -7,13 +7,13 @@ import Image from "next/image";
 const login = ({ providers }) => {
   
   return (
-    <div className="bg-gradient-to-r from-blue-500 to-pink-700 min-h-screen flex flex-col items-center justify-center gap-44 ">
+    <div className="bg-gradient-to-r from-blue-500 to-pink-600 min-h-screen flex flex-col items-center justify-center gap-44 w-full">
       <Head>
         <title>Spotify Login</title>
       </Head>
-      <div className="flex gap-4 items-center justify-center mr-2">
+      <div className="flex gap-2 items-center justify-center w-full pr-8 md:pr-0">
 
-      <Image src="https://i.imgur.com/fPuEa9V.png" alt="logo"  width={80} height={80} />
+      <Image src="https://i.imgur.com/fPuEa9V.png" alt="logo"  width={65} height={65} />
         <h1 className="text-white font-bold text-4xl">Spotify</h1>
          
       </div>
