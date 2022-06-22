@@ -6,7 +6,7 @@ import Song from "./Song";
 
 const Songs = () => {
   const playlist = useRecoilValue(playlistState);
-  console.log(playlist);
+ 
 
   return (
     <div className="md:px-9 px-3">

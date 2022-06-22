@@ -56,14 +56,11 @@ const Player = () => {
 
   useEffect(() => {
     spotifyApi.getMyCurrentPlayingTrack().then((res) => {
- 
       setProgress(res?.body?.progress_ms);
 
-     
-        setRange(parseInt((progress / songInfo?.duration_ms) * 100));
-      
+      setRange(parseInt((progress / songInfo?.duration_ms) * 100));
     });
-  }, [spotifyApi, progress,songInfo?.duration_ms]);
+  }, [spotifyApi, progress, songInfo?.duration_ms]);
 
   const handleMute = () => {
     setVolume(0);
@@ -77,7 +74,6 @@ const Player = () => {
     }
   }, [currentTrackStateId, spotifyApi, session]);
 
-  
   const debouncedSetVolume = useCallback(
     debounce((volume) => {
       spotifyApi.setVolume(volume).catch((er) => {});
@@ -96,15 +92,17 @@ const Player = () => {
 
   return (
     <div className="bg-black p-2  border-t border-gray-700 w-full   ">
-      <div className="md:grid grid-cols-3 flex  gap-3 md:px-10 items-center justify-between md:p-3  py-3  ">
-        <div className="songName  flex md:gap-4 md:items-start  ml-5 md:ml-0">
+      <div className="md:grid grid-cols-3 flex  gap-4 md:px-10 items-center justify-between md:p-3  py-3  ">
+        <div className="songName  flex md:gap-4 md:items-start  ml-2 gap-2 md:ml-0">
           <img
             src={songInfo?.album.images?.[0]?.url}
             alt=""
-            className="h-10 w-10 shadow-xl hidden md:inline "
+            className="h-10 w-10 shadow-xl "
           />
           <div className="flex flex-col gap-1 items-center justify-center ">
-            <p className="text-white text-sm font-bold text-left ">{songInfo?.name}</p>
+            <p className="text-white text-sm font-bold text-left truncate">
+              {songInfo?.name}
+            </p>
             <p className="text-white text-xs">{songInfo?.artists?.[0].name}</p>
           </div>
         </div>
@@ -127,8 +125,10 @@ const Player = () => {
             <ReplyIcon className="h-6 w-6 text-white hover:text-gray-400 transition-all cursor-pointer hidden md:block " />
           </div>
           <div className="controller flex gap-2 justify-center items-center mr-9">
-            <p className="text-gray-600 text-sm  ">{millisToMinutesAndSeconds(progress)}</p>
-            <input 
+            <p className="text-gray-600 text-sm  ">
+              {millisToMinutesAndSeconds(progress)}
+            </p>
+            <input
               type="range"
               min={0}
               max={100}

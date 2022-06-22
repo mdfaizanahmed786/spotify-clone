@@ -47,7 +47,7 @@ const Center = () => {
         .then((data) => {
           setPlaylist(data.body);
         })
-        .catch((er) => console.log(er));
+        .catch((er) => alert.log(er));
     }
   }, [spotifyApi, playlistId]);
 
@@ -100,11 +100,11 @@ const Center = () => {
             alt=""
             className="md:h-44 md:w-44 h-36 w-36 shadow-2xl"
           />
-          <div className="playlist_info flex flex-col gap-4">
+          <div className="playlist_info flex flex-col md:gap-4 gap-3">
             <p className="text-white text-sm capitalize font-bold">
               public playlist
             </p>
-            <h1 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold capitalize">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold capitalize">
               {playlist?.name}
             </h1>
             <div className="flex gap-2 items-center ">
