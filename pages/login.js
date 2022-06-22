@@ -2,6 +2,7 @@
 import React from "react";
 import { getProviders, signIn, useSession } from "next-auth/react";
 import Head from "next/head";
+import Image from "next/image";
 
 const login = ({ providers }) => {
   
@@ -10,12 +11,12 @@ const login = ({ providers }) => {
       <Head>
         <title>Spotify Login</title>
       </Head>
-      <img src="https:/links.papareact.com/9xl" alt="logo"  className="w-52 mb-8"/>
+      <Image src="https://i.imgur.com/fPuEa9V.png" alt="logo"  className="w-52 " width={150} height={150} />
       {/* will return array of providers which contain only values, if entries are passed then both keys and values are returned */}
       {Object.values(providers).map((provider) => (
         <div key={provider.name}>
           {/* singin with provider and it redirects to a callback url to homepage */}
-          <button className="bg-[#18D860] p-4 hover:bg-green-600 rounded-full text-white" onClick={()=>signIn(provider.id, {callbackUrl:"/"})}> Login with {provider.name}</button>
+          <button className="bg-[#18D860] p-4 hover:bg-green-600 rounded-full text-white mt-10" onClick={()=>signIn(provider.id, {callbackUrl:"/"})}> Login with {provider.name}</button>
         </div>
       ))}
     </div>
